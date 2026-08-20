@@ -1,0 +1,115 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+  
+   /* ================= Users ================= */
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    /* ================= Recruiters ================= */
+    match /recruiters/{recruiterId} {
+      allow read, write: if request.auth != null
+        && request.auth.uid == recruiterId;
+    }
+
+    /* ================= Companies ================= */
+    match /companies/{companyId} {
+
+      // Everyone logged in can read company profiles
+      allow read: if request.auth != null;
+
+      // Only recruiter can create company
+      // FIXED: Using meta.createdBy instead of recruiterId to match CompanyModel
+      allow create: if request.auth != null
+        && request.resource.data.meta.createdBy == request.auth.uid;
+
+      // Only owner recruiter can update/delete
+      // FIXED: Using meta.createdBy instead of recruiterId to match CompanyModel
+      allow update, delete: if request.auth != null
+        && resource.data.meta.createdBy == request.auth.uid;
+    }
+
+    /* ================= Jobs ================= */
+    match /jobs/{jobId} {
+      allow read: if true;
+      allow create, update, delete: if request.auth != null;
+    }
+
+    /* ================= Job Applications ================= */
+    match /job_applications/{applicationId} {
+      allow read, write: if request.auth != null;
+    }
+
+    /* ================= Candidates ================= */
+    match /candidates/{candidateId} {
+      allow read: if request.auth != null && (
+        request.auth.uid == candidateId ||
+        exists(/databases/$(database)/documents/recruiters/$(request.auth.uid))
+      );
+
+      allow write: if request.auth != null
+        && request.auth.uid == candidateId;
+    }
+
+    /* ================= Assessment Results (FIXED) ================= */
+    match /assessmentResults/{resultId} {
+      // Changed request.query to resource.data.
+      // Queries must filter by candidateId for this to pass.
+      allow read: if request.auth != null
+        && resource.data.candidateId == request.auth.uid;
+
+      allow create: if request.auth != null
+        && request.resource.data.candidateId == request.auth.uid;
+      
+      allow delete: if request.auth != null
+        && resource.data.candidateId == request.auth.uid;
+    }
+  
+
+
+    /* ================= Chats ================= */
+    match /chats/{chatId} {
+
+      // Only participants can read chat
+      allow read: if request.auth != null && (
+        resource.data.candidateId == request.auth.uid ||
+        resource.data.recruiterId == request.auth.uid
+      );
+
+      // Only participants can create chat
+      allow create: if request.auth != null && (
+        request.resource.data.candidateId == request.auth.uid ||
+        request.resource.data.recruiterId == request.auth.uid
+      );
+
+      // Only participants can update/delete
+      allow update, delete: if request.auth != null && (
+        resource.data.candidateId == request.auth.uid ||
+        resource.data.recruiterId == request.auth.uid
+      );
+
+      /* -------- Messages -------- */
+      match /messages/{messageId} {
+        allow read, write: if request.auth != null && (
+          get(/databases/$(database)/documents/chats/$(chatId))
+            .data.candidateId == request.auth.uid ||
+          get(/databases/$(database)/documents/chats/$(chatId))
+            .data.recruiterId == request.auth.uid
+        );
+      }
+    }
+
+    /* ================= Recruiter Notifications ================= */
+    match /notification_recruter/{docId} {
+      allow read, update, delete: if request.auth != null && resource.data.recruiterId == request.auth.uid;
+      allow create: if request.auth != null;
+    }
+
+    /* ================= Default Deny ================= */
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "project_info": {
+    "project_number": "615421954739",
+    "firebase_url": "https://talent-bay-d0b92-default-rtdb.firebaseio.com",
+    "project_id": "talent-bay-d0b92",
+    "storage_bucket": "talent-bay-d0b92.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615421954739:android:e5cf4132980cdd81627ec6",
+        "android_client_info": {
+          "package_name": "com.waqttix.talentbay.candidate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615421954739-9s0s8r2bdcj532o3j00mp7b8jvok7jag.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.waqttix.talentbay.candidate",
+            "certificate_hash": "9ef1876e88728309752a3f75759560b914fb664e"
+          }
+        },
+        {
+          "client_id": "615421954739-d8eqi2ossgh5dphss21rf5kf8nhqt5eb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.waqttix.talentbay.candidate",
+            "certificate_hash": "be00d2517cfa8d98a6bdd691ef06245e35e0e077"
+          }
+        },
+        {
+          "client_id": "615421954739-g7kkjpm5v0fcj0sh27ljsfl3t38r5bce.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.waqttix.talentbay.candidate",
+            "certificate_hash": "3941aa8f986f0b29f01c850656a0f9bb1a67d467"
+          }
+        },
+        {
+          "client_id": "615421954739-jnlcrrqd0fl72hcbonuigucp1qa7ns7m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.waqttix.talentbay.candidate",
+            "certificate_hash": "9ca41a357de99ea10401e2891533e3e45caaf751"
+          }
+        },
+        {
+          "client_id": "615421954739-ql2s7s3hfrmto2nr39q9qc393ndi1mb5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBa9bD8XE7NtlGBxVVa25wKQf7HR5uP8IQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615421954739-ql2s7s3hfrmto2nr39q9qc393ndi1mb5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "615421954739-1o4i0d5qg18hc2or9gje52or1k1930ie.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.talentbay.recruiter"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615421954739:android:119ea7dd26d692d4627ec6",
+        "android_client_info": {
+          "package_name": "com.waqttix.talentbay.recruiter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615421954739-a30c43ok666srgj1c64vdrk8kfokkhhi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.waqttix.talentbay.recruiter",
+            "certificate_hash": "3941aa8f986f0b29f01c850656a0f9bb1a67d467"
+          }
+        },
+        {
+          "client_id": "615421954739-epp48gefue60gpil35ud7lhmhkci8qc5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.waqttix.talentbay.recruiter",
+            "certificate_hash": "9ef1876e88728309752a3f75759560b914fb664e"
+          }
+        },
+        {
+          "client_id": "615421954739-q1uton614u7meq4138bemub42ts7la9v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.waqttix.talentbay.recruiter",
+            "certificate_hash": "9ca41a357de99ea10401e2891533e3e45caaf751"
+          }
+        },
+        {
+          "client_id": "615421954739-ql2s7s3hfrmto2nr39q9qc393ndi1mb5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBa9bD8XE7NtlGBxVVa25wKQf7HR5uP8IQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615421954739-ql2s7s3hfrmto2nr39q9qc393ndi1mb5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "615421954739-1o4i0d5qg18hc2or9gje52or1k1930ie.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.talentbay.recruiter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
